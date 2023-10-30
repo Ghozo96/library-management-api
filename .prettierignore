@@ -1,0 +1,10 @@
+# Node
+node_modules/
+dist/
+package-lock.json
+
+# JetBrains IDE
+.idea/
+
+# Jest
+coverage/

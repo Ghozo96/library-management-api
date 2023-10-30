@@ -1,0 +1,15 @@
+{
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "verbose": true,
+    "testMatch": ["**/test/**/*.test.ts"],
+    "clearMocks": true,
+    "maxWorkers": 4,
+    "workerIdleMemoryLimit": "512MB",
+    "collectCoverage": true,
+    "collectCoverageFrom": ["src/**/*.ts"],
+    "coveragePathIgnorePatterns": ["/test/", "/types/"],
+    "coverageDirectory": "coverage",
+    "coverageProvider": "v8"
+  }
+  
