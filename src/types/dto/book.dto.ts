@@ -1,3 +1,5 @@
+import { Borrowing } from '@prisma/client';
+
 export type BookUpdateDto = Omit<BookDto, 'isbn'>;
 
 export interface BookListDto {
@@ -16,4 +18,17 @@ export interface BookSearchQuery {
   isbn?: string;
   title?: string;
   author?: string;
+}
+
+export interface BookCheckoutDto {
+  borrowerId: number;
+  daysToBorrow: number;
+}
+
+export interface BookReturnDto {
+  borrowerId: number;
+}
+
+export interface BorrowingListDto {
+  borrowings: Borrowing[];
 }
