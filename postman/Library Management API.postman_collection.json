@@ -1,0 +1,302 @@
+{
+  "info": {
+    "_postman_id": "42476e51-3848-4f2d-8faa-51caa559060f",
+    "name": "Library Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "19115058"
+  },
+  "item": [
+    {
+      "name": "book",
+      "item": [
+        {
+          "name": "Create Book",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"isbn\": \"ee08c3ff-4a50-4c8b-be96-6f72aa833ce7\",\r\n    \"title\": \"Working Hard 3\",\r\n    \"author\": \"Marwan Ghazala\",\r\n    \"availableQuantity\": 90,\r\n    \"shelfLocation\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/books",
+              "host": ["{{base_url}}"],
+              "path": ["books"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Book",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Great Life 2\",\r\n    \"author\": \"Marwan Ghazala\",\r\n    \"availableQuantity\": 90,\r\n    \"shelfLocation\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/books/e90ad162-d832-467d-8217-7482bdf4f38d",
+              "host": ["{{base_url}}"],
+              "path": ["books", "e90ad162-d832-467d-8217-7482bdf4f38d"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Books",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/books",
+              "host": ["{{base_url}}"],
+              "path": ["books"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Overdue Borrowings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/books/borrowed/overdue",
+              "host": ["{{base_url}}"],
+              "path": ["books", "borrowed", "overdue"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search Books",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/books/search?author=Mohamed Maged&isbn=84edd868-dc39-4de8-a3d9-170a15d7947d",
+              "host": ["{{base_url}}"],
+              "path": ["books", "search"],
+              "query": [
+                {
+                  "key": "author",
+                  "value": "Mohamed Maged"
+                },
+                {
+                  "key": "isbn",
+                  "value": "84edd868-dc39-4de8-a3d9-170a15d7947d"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Book",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/books/84edd868-dc39-4de8-a3d9-170a15d7",
+              "host": ["{{base_url}}"],
+              "path": ["books", "84edd868-dc39-4de8-a3d9-170a15d7"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Book",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/books/84edd868-dc39-4de8-a3d9-170a15d7947d",
+              "host": ["{{base_url}}"],
+              "path": ["books", "84edd868-dc39-4de8-a3d9-170a15d7947d"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Checkout Book",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"borrowerId\": 1,\r\n    \"daysToBorrow\": 3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/books/ee08c3ff-4a50-4c8b-be96-6f72aa833ce5/checkout",
+              "host": ["{{base_url}}"],
+              "path": ["books", "ee08c3ff-4a50-4c8b-be96-6f72aa833ce5", "checkout"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Return Book",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"borrowerId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/books/e90ad162-d832-467d-8217-7482bdf4f38d/return",
+              "host": ["{{base_url}}"],
+              "path": ["books", "e90ad162-d832-467d-8217-7482bdf4f38d", "return"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "borrower",
+      "item": [
+        {
+          "name": "Register Borrower",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"marwan3@gmail.com\",\r\n    \"password\": \"12345678\",\r\n    \"name\": \"Marwan Ghazala\",\r\n    \"age\": 25\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/borrowers/register",
+              "host": ["{{base_url}}"],
+              "path": ["borrowers", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Borrower",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Marwan Mohamed\",\r\n    \"age\": 23\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/borrowers/1",
+              "host": ["{{base_url}}"],
+              "path": ["borrowers", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Borrower",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/borrowers/3",
+              "host": ["{{base_url}}"],
+              "path": ["borrowers", "3"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Borrower",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/borrowers/3",
+              "host": ["{{base_url}}"],
+              "path": ["borrowers", "3"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Borrowers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/borrowers",
+              "host": ["{{base_url}}"],
+              "path": ["borrowers"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Borrower Books",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/borrowers/3/books",
+              "host": ["{{base_url}}"],
+              "path": ["borrowers", "3", "books"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ]
+}
